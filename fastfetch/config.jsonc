@@ -1,0 +1,93 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "display": {
+        "separator": "->   ",
+        "color": {
+            "separator": "red"
+        }
+    },
+    "modules": [
+        {
+            "key": "Name        ",
+            "type":"title"
+        },
+        {
+            "key": "Distro      ",
+            "type": "os"
+        },
+        {
+            "key": "Kernel      ",
+            "type":"kernel"
+        },
+        {
+            "key": "Processes   ",
+            "type":"processes"
+        },
+        {
+            "key": "Packages    ",
+            "type":"packages"
+        },
+        {
+            "key": "DE          ",
+            "type":"de"
+        },
+        {
+            "key": "WM          ",
+            "type":"wm"
+        },
+        {
+            "key": "DM          ",
+            "type":"lm"
+        },
+        {
+            "key": "Shell       ",
+            "type": "shell"
+        },
+        {
+            "key": "Terminal    ",
+            "type": "terminal"
+        },
+        {
+            "key": "CPU         ",
+            "type":"cpu"
+        },
+        {
+            "key": "GPU         ",
+            "type":"gpu"
+        },
+        {
+            "key": "Memory      ",
+            "type":"memory"
+        },
+        {
+            "key": "SWAP        ",
+            "type":"swap"
+        },
+        {
+            "key": "Disk        ",
+            "type":"disk"
+        },
+        {
+            "key": "Display     ",
+            "type": "display"
+        },
+        {
+            "key": "Battery     ",
+            "type":"battery"
+        },
+        {
+            "key": "Uptime      ",
+            "type":"uptime"
+        },
+        {
+            "key": "DT          ",
+            "type":"datetime"
+        },
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 6,
+            "symbol": "circle"
+        }
+    ]
+}
