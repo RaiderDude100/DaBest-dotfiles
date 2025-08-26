@@ -1,0 +1,18 @@
+@import "colors.rasi"
+//@theme "~/.config/rofi/themes/spotlight-dark.rasi"
+
+//@theme "/usr/share/rofi/themes/dmenu.rasi"
+
+//@theme "/usr/share/rofi/themes/material.rasi"
+
+//@theme "/usr/share/rofi/themes/sidebar-v2.rasi"
+
+//@theme "/usr/share/rofi/themes/fullscreen-preview.rasi"
+
+//@theme "/usr/share/rofi/themes/sidebar.rasi"
+
+//@theme "/home/neo/.config/rofi/themes/spotlight-dark.rasi"
+
+//@theme "/home/neo/.config/rofi/themes/launchpad.rasi"
+
+@theme "/home/neo/.config/rofi/themes/rounded.rasi"

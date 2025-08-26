@@ -1,0 +1,111 @@
+@import "colors.css";
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 13.5px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin: 2px;
+}
+
+tooltip {
+    background-color: @surface;
+    color: @primary;
+    border-width: 2px;
+    border-color: @primary;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: @primary;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+    color: @primary
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: @surface;
+    color: @primary;
+}
+
+#workspaces button:hover {
+    background-color: @inverse_primary;
+    color: @surface;
+}
+
+#workspaces button.active {
+    background-color: @primary;
+    padding: 0px 12px;
+    color: @surface;
+}
+
+#workspaces button.urgent {
+    background-color: @error;
+}
+#clock,
+#network,
+#pulseaudio,
+#window {
+    background-color: @surface;
+    padding: 0 10px;
+}
+
+#battery {
+    background-color: @surface;
+    padding: 0 10px;
+}
+
+#workspaces {
+    background-color: @surface;
+}
+
+#clock {
+    background-color: @surface;
+    padding: 0 10px;
+}
+
+#network {
+    background-color: @surface;
+    padding: 0 10px;
+}
+
+#pulseaudio {
+    background-color: @surface;
+    color: @primary;
+    padding: 0 10px;
+}
+
+#pulseaudio.muted {
+    background-color: @surface;
+    color: #ff0000;
+}
+
+#tray {
+    background-color: @surface;
+    padding: 0 10px;
+}
+
+#custom-notification {
+    background-color: @surface;
+    padding: 0px 10px;
+}
+
+#custom-launcher {
+    background-color: @surface;
+    padding: 0px 15px;
+}
+
+#custom-powermenu {
+    background-color: @surface;
+    padding: 0px 15px;
+}
+
+#custom-updates {
+    background-color: @surface;
+    padding: 0px 9px;
+}

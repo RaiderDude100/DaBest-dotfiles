@@ -1,0 +1,40 @@
+@import '~/.config/hypr/colors.conf';
+
+window#osd {
+  border-radius: 999px;
+  border: none;
+  background: $background;
+
+  #container {
+    margin: 16px;
+  }
+
+  image,
+  label {
+    color: $primary;
+  }
+
+  progressbar:disabled,
+  image:disabled {
+    opacity: 0.5;
+  }
+
+  progressbar {
+    min-height: 6px;
+    border-radius: 999px;
+    background: transparent;
+    border: none;
+  }
+  trough {
+    min-height: inherit;
+    border-radius: inherit;
+    border: none;
+    background: $primary;
+  }
+  progress {
+    min-height: inherit;
+    border-radius: inherit;
+    border: none;
+    background: $primary;
+  }
+}
