@@ -1,19 +1,14 @@
 #!/bin/sh
 
-PATH="~/dotfiles"
+FOLDER_PATH="$HOME/dotfiles"
+cd "$HOME"
+
 if [ -d "$FOLDER_PATH" ]; then
   echo "Already downloaded"
-  cd ~/dotfiles
-  cd Scripts
-  ./install.sh
-
-  
 else
-  echo "Downloading from github"
-  cd ~
+  echo "Downloading from GitHub"
   git clone https://github.com/RaiderDude100/dotfiles.git
-  cd dotfiles
-  cd Scripts
-  ./install.sh
-  
 fi
+
+cd "$FOLDER_PATH/Scripts"
+./install.sh

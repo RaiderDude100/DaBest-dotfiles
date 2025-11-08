@@ -1,7 +1,7 @@
 #!/bin/sh
 
-sudo pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
+exec sudo pacman -S --needed git base-devel
+exec git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+exec makepkg -si
 
