@@ -1,0 +1,92 @@
+@import '~/.config/rofi/colors.rasi'
+* {
+    font:   "JetBrainsMono Nerd Font 12";
+
+    background-color:   transparent;
+    text-color:         @secondary;
+}
+
+window {
+    location:       center;
+    width:          60%;
+    height: 75%;
+    border-radius:  20px;
+    background-color:   @surface;
+}
+
+mainbox {
+    border: 2px;
+    border-radius: 20px;
+    border-color: @secondary;
+    children: ["inputbar","listview"];
+    orientation: horizontal;
+}
+
+inputbar {
+    padding:    8px 16px;
+    spacing:    8px;
+    width: 16em;
+    children:   ["entry"];
+    background-color:            transparent;
+    background-image:            url("~/.cache/profile_rectangle.jpg");
+}
+
+prompt {
+    text-color: @primary;
+}
+
+entry {
+    placeholder:        "Search";
+    placeholder-color:  @primary;
+}
+
+message {
+    margin:             12px 0 0;
+    border-radius:      16px;
+    border-color:       @primary;
+    background-color:   @surface;
+}
+
+textbox {
+    padding:    8px 24px;
+}
+
+listview {
+    background-color:   transparent;
+
+    margin:     12px 0 0;
+    lines:      8;
+    columns:    1;
+
+    padding-left: 12px;
+    fixed-height: true;
+}
+
+element {
+    padding:        8px 16px;
+    spacing:        8px;
+    border-radius:  16px;
+}
+
+element normal active {
+    text-color: @tertiary;
+}
+
+element alternate active {
+    text-color: @tertiary;
+}
+
+element selected normal, element selected active {
+    background-color:   @inverse-primary;
+    text-color: @tertiary;
+}
+
+element-icon {
+    size:           1em;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+}
+

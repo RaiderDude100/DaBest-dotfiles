@@ -1,0 +1,51 @@
+{
+    "layer": "top", // Waybar at top layer
+    "spacing": 4, // Gaps between modules (4px)
+    "modules-left": ["hyprland/workspaces","custom/sep","hyprland/window","custom/sep","tray"],
+    "modules-center": ["cpu","custom/sep","memory"],
+    "modules-right": ["pulseaudio","custom/sep","battery","custom/sep","network","custom/sep","clock"],
+    "include": [
+    	"~/.config/waybar/modules.json"
+    ],
+    "hyprland/workspaces": {
+    	"persistent-workspaces": {
+		"*": 3
+	},
+    },
+    
+    "hyprland/window": {
+    	"format": "{title}",
+    	"icon": false,
+    	"icon-size": 13,
+    	"max-length": 32,
+    	"rewrite": {
+    		"(rofi - drun)": "",
+    	},
+    },
+    "tray": {
+        "spacing": 4
+    },
+    "clock": {
+        "interval": 60,
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%d/%m/%Y}",
+        "tooltip-format": "{calendar}"
+    },
+    "network": {
+        "format-wifi": "Wifi",
+        "format-ethernet": "Ethernet",
+        "tooltip-format": "{ifname}/{essid} via {gwaddr}",
+        "format-disconnected": "Disconnected",
+        "on-click": "kitty -e nmtui",
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+}
+

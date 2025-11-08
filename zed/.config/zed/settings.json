@@ -1,0 +1,34 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "icon_theme": "Material Icon Theme",
+  "buffer_font_family": ".ZedMono",
+  "project_panel": {
+    "dock": "right"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "ui_font_size": 16,
+  "theme": {
+    "mode": "dark",
+    "light": "Ayu Dark",
+    "dark": "Wallust"
+  },
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "python.analysis": {
+          "typeCheckingMode": "off"
+        }
+      }
+    }
+  }
+}

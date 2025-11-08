@@ -1,0 +1,130 @@
+@import "colors.css";
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "JetBrainsMono Nerd Font Propo";
+    border-radius: 20px;
+    margin: 2px;
+}
+
+tooltip {
+    background-color: @surface;
+    color: @primary;
+    font-size: 13px;
+    font-weight: bold;
+    border-width: 2px;
+    border-color: @secondary;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: @primary;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+    border: 0px solid @secondary;
+    color: @primary
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: @surface;
+    color: @primary;
+}
+
+#workspaces button:hover {
+    background-color: @inverse_primary;
+    color: @surface;
+}
+
+#workspaces button.active {
+    background-color: @primary;
+    font-size: 14.5px;
+    padding: 0px 12px;
+    color: @surface;
+}
+
+#workspaces button.urgent {
+    background-color: @error;
+    color: @on_error;
+}
+#window {
+    background-color: @surface;
+    border: 2px solid @secondary;
+    padding: 0 10px;
+}
+
+#battery {
+    background-color: @surface;
+    padding: 0 10px;
+}
+
+#workspaces {
+    background-color: @surface;
+    border: 2px solid @secondary;
+}
+
+#clock {
+    background-color: @surface;
+}
+
+#network {
+    background-color: @surface;
+    border: 2px solid @secondary;
+    padding: 0 10px;
+}
+
+#pulseaudio {
+    background-color: @surface;
+    color: @primary;
+    border: 2px solid @secondary;
+    padding: 0 10px;
+}
+
+#pulseaudio.muted {
+    background-color: @on_error;
+    border-color: @error;
+    color: @error;
+    padding: 0 10px;
+}
+
+
+#trays {
+    background-color: @surface;
+    border: 2px solid @secondary;
+    padding: 0 10px
+}
+
+#battery {
+    background-color: @surface;
+    border: 2px solid @secondary;
+    padding: 0 10px
+}
+#custom-notification {
+    background-color: @surface;
+}
+
+#custom-launcher {
+    background-color: @surface;
+}
+
+#custom-powermenu {
+    background-color: @surface;
+}
+
+#custom-updates {
+    background-color: @surface;
+    border: 2px solid @secondary;
+    padding: 0px 9px;
+}
+
+#menus {
+    background-color: @surface;
+    border: 2px solid @secondary;
+    padding: 0 13px;
+    font-size: 16px;
+}
+
+

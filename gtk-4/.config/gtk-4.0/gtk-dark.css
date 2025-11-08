@@ -1,0 +1,13 @@
+@import 'colors.css';
+
+tooltip {
+  margin: 1px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: @accent_color;
+    background-image: none;
+    background-color: @view_bg_color;
+    color: @view_fg_color;
+    font-weight: bold;
+};

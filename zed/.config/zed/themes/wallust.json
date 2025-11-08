@@ -1,0 +1,361 @@
+{
+    "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
+    "author": "Jan Reinsch <jan@coded-aesthetics.com>",
+    "name": "Wallust",
+    "themes": [
+        {
+            "name": "Wallust",
+            "appearance": "dark",
+            "style": {
+                // Basic text and background colors
+                "background": "#05000A",
+                "text": "#FCE8DF",
+                "text.muted": "#CABAB2",
+                "text.placeholder": "#B0A29C",
+                "text.disabled": "#978B86",
+                "text.accent": "#75C9A9",
+
+                // Icon colors - match text hierarchy
+                "icon": "#FCE8DF",
+                "icon.muted": "#CABAB2",
+                "icon.disabled": "#978B86",
+                "icon.placeholder": "#B0A29C",
+                "icon.accent": "#75C9A9",
+
+                // Border colors - subtle but visible
+                "border": "#655D59",
+                "border.variant": "#4C4643",
+                "border.focused": "#75C9A9",
+                "border.selected": "#75C9A9",
+                "border.transparent": "#00000000",
+                "border.disabled": "#322E2D",
+
+                // Surface backgrounds - slightly elevated from main background
+                "surface.background": "#05000A",
+                "elevated_surface.background": "#1E1A22",
+
+                // Interactive element states
+                "element.background": "transparent",
+                "element.hover": "#342E2F",
+                "element.active": "#253D36",
+                "element.selected": "#1F332D",
+                "element.disabled": "#120D16",
+
+                // Ghost elements - more subtle interactions
+                "ghost_element.background": "transparent",
+                "ghost_element.hover": "#1A1717",
+                "ghost_element.active": "#342E2F",
+                "ghost_element.selected": "#121E1B",
+                "ghost_element.disabled": "transparent",
+
+                // Drag and drop target
+                "drop_target.background": "#2B473F",
+
+                // Application frame elements
+                "status_bar.background": "#120D16",
+                "title_bar.background": "#05000A",
+                "title_bar.inactive_background": "#0C0811",
+                "toolbar.background": "#05000A",
+
+                // Side panels
+                "panel.background": "#05000A",
+                "panel.focused_border": "#75C9A9",
+
+                // Editor panes
+                "pane.focused_border": "#75C9A9",
+                "pane_group.border": "#655D59",
+
+                // Tab bar and tabs
+                "tab_bar.background": "#120D16",
+                "tab.inactive_background": "transparent",
+                "tab.active_background": "#05000A",
+
+                // Main editor area
+                "editor.background": "#05000A",
+                "editor.foreground": "#FCE8DF",
+                "editor.gutter.background": "#05000A",
+                "editor.subheader.background": "#120D16",
+                "editor.active_line.background": "#1A1717",
+                "editor.highlighted_line.background": "#34180F",
+                "editor.line_number": "#978B86",
+                "editor.active_line_number": "#FCE8DF",
+                "editor.invisible": "#7E7470",
+                "editor.wrap_guide": "#655D59",
+                "editor.active_wrap_guide": "#978B86",
+                "editor.indent_guide": "#655D59",
+                "editor.indent_guide_active": "#978B86",
+                "editor.document_highlight.read_background": "#401E13",
+                "editor.document_highlight.write_background": "#1C2322",
+                "editor.document_highlight.bracket_background": "#1F332D",
+
+                // Integrated terminal
+                "terminal.background": "#05000A",
+                "terminal.foreground": "#FCE8DF",
+                "terminal.bright_foreground": "#FCEAE2",
+                "terminal.dim_foreground": "#CABAB2",
+                "terminal.ansi.background": "#05000A",
+                "terminal.ansi.black": "#05000A",
+                "terminal.ansi.red": "#688C7E",
+                "terminal.ansi.green": "#A68570",
+                "terminal.ansi.yellow": "#FD7543",
+                "terminal.ansi.blue": "#75C9A9",
+                "terminal.ansi.magenta": "#BFBA9E",
+                "terminal.ansi.cyan": "#F5BDA4",
+                "terminal.ansi.white": "#F2D6C9",
+                "terminal.ansi.bright_black": "#A9958D",
+                "terminal.ansi.bright_red": "#688C7E",
+                "terminal.ansi.bright_green": "#A68570",
+                "terminal.ansi.bright_yellow": "#FD7543",
+                "terminal.ansi.bright_blue": "#75C9A9",
+                "terminal.ansi.bright_magenta": "#BFBA9E",
+                "terminal.ansi.bright_cyan": "#F5BDA4",
+                "terminal.ansi.bright_white": "#F2D6C9",
+
+                // Search functionality
+                "search.match_background": "#672F1E",
+
+                // Scrollbar elements
+                "scrollbar.track.background": "transparent",
+                "scrollbar.track.border": "transparent",
+                "scrollbar.thumb.background": "#7E7470",
+                "scrollbar.thumb.border": "transparent",
+                "scrollbar.thumb.hover_background": "#B0A29C",
+
+                // Status indicators - success, warning, error, info
+                "success": "#A68570",
+                "success.background": "#2B211F",
+                "success.border": "#A68570",
+
+                "warning": "#FD7543",
+                "warning.background": "#401E13",
+                "warning.border": "#FD7543",
+
+                "error": "#688C7E",
+                "error.background": "#1C2322",
+                "error.border": "#688C7E",
+
+                "info": "#75C9A9",
+                "info.background": "#1F332D",
+                "info.border": "#75C9A9",
+
+                "hint": "#CABAB2",
+                "hint.background": "#272323",
+                "hint.border": "#CABAB2",
+
+                // Git status colors
+                "created": "#A68570",
+                "created.background": "#2B211F",
+                "created.border": "#A68570",
+
+                "modified": "#FD7543",
+                "modified.background": "#401E13",
+                "modified.border": "#FD7543",
+
+                "deleted": "#688C7E",
+                "deleted.background": "#1C2322",
+                "deleted.border": "#688C7E",
+
+                "renamed": "#75C9A9",
+                "renamed.background": "#1F332D",
+                "renamed.border": "#75C9A9",
+
+                "conflict": "#BFBA9E",
+                "conflict.background": "#312E2A",
+                "conflict.border": "#BFBA9E",
+
+                "ignored": "#B0A29C",
+                "ignored.background": "#1A1717",
+                "ignored.border": "#B0A29C",
+
+                "hidden": "#978B86",
+                "hidden.background": "transparent",
+                "hidden.border": "#978B86",
+
+                "predictive": "#B0A29C",
+                "predictive.background": "#1A1717",
+                "predictive.border": "#B0A29C",
+
+                "unreachable": "#7E7470",
+                "unreachable.background": "#0C0811",
+                "unreachable.border": "#7E7470",
+
+                // Link styling
+                "link_text.hover": "#83CEB2",
+
+                // Syntax highlighting - follows standard color assignments
+                "syntax": {
+                    // Comments - muted but readable
+                    "comment": {
+                        "color": "#CABAB2",
+                        "font_style": "italic"
+                    },
+                    "comment.doc": {
+                        "color": "#E3D1C9",
+                        "font_style": "italic"
+                    },
+
+                    // Keywords
+                    "keyword": {
+                        "color": "#688C7E"
+                    },
+
+                    // Strings
+                    "string": {
+                        "color": "#A68570"
+                    },
+                    "string.escape": {
+                        "color": "#F5BDA4"
+                    },
+                    "string.regex": {
+                        "color": "#F5BDA4"
+                    },
+
+                    // Numbers and constants
+                    "number": {
+                        "color": "#FD7543"
+                    },
+                    "constant": {
+                        "color": "#FD7543"
+                    },
+                    "boolean": {
+                        "color": "#BFBA9E"
+                    },
+
+                    // Functions
+                    "function": {
+                        "color": "#75C9A9"
+                    },
+                    "constructor": {
+                        "color": "#75C9A9"
+                    },
+
+                    // Types
+                    "type": {
+                        "color": "#BFBA9E"
+                    },
+                    "enum": {
+                        "color": "#BFBA9E"
+                    },
+
+                    // Variables
+                    "variable": {
+                        "color": "#FCE8DF"
+                    },
+                    "variable.special": {
+                        "color": "#BFBA9E"
+                    },
+
+                    // Properties and attributes
+                    "property": {
+                        "color": "#75C9A9"
+                    },
+                    "attribute": {
+                        "color": "#FD7543"
+                    },
+
+                    // Operators - typically cyan (color6)
+                    "operator": {
+                        "color": "#F5BDA4"
+                    },
+
+                    // Punctuation - subtle but visible
+                    "punctuation": {
+                        "color": "#E3D1C9"
+                    },
+                    "punctuation.bracket": {
+                        "color": "#FCE8DF"
+                    },
+                    "punctuation.delimiter": {
+                        "color": "#E3D1C9"
+                    },
+
+                    // Tags (HTML/XML)
+                    "tag": {
+                        "color": "#688C7E"
+                    },
+
+                    // Labels and identifiers
+                    "label": {
+                        "color": "#75C9A9"
+                    },
+
+                    // Text literals
+                    "text.literal": {
+                        "color": "#A68570"
+                    },
+
+                    // Titles and headings
+                    "title": {
+                        "color": "#75C9A9",
+                        "font_weight": 700
+                    },
+
+                    // Links in markdown/docs
+                    "link_text": {
+                        "color": "#75C9A9",
+                        "font_style": "italic"
+                    },
+                    "link_uri": {
+                        "color": "#F5BDA4"
+                    },
+
+                    // Text emphasis
+                    "emphasis": {
+                        "font_style": "italic"
+                    },
+                    "emphasis.strong": {
+                        "font_weight": 700
+                    },
+
+                    // Special syntax elements
+                    "embedded": {
+                        "color": "#FCE8DF"
+                    },
+                    "preproc": {
+                        "color": "#688C7E"
+                    },
+                    "primary": {
+                        "color": "#FCE8DF"
+                    },
+                    "variant": {
+                        "color": "#BFBA9E"
+                    },
+
+                    // Editor hints and diagnostics
+                    "hint": {
+                        "color": "#CABAB2",
+                        "font_weight": 700
+                    },
+                    "predictive": {
+                        "color": "#B0A29C",
+                        "font_style": "italic"
+                    }
+                },
+
+                // Collaborative editing - different users get different colors
+                "players": [
+                    {
+                        "cursor": "#75C9A9",
+                        "background": "#75C9A9",
+                        "selection": "#2B473F"
+                    },
+                    {
+                        "cursor": "#A68570",
+                        "background": "#A68570",
+                        "selection": "#3C2E2B"
+                    },
+                    {
+                        "cursor": "#FD7543",
+                        "background": "#FD7543",
+                        "selection": "#5A291B"
+                    },
+                    {
+                        "cursor": "#BFBA9E",
+                        "background": "#BFBA9E",
+                        "selection": "#45413B"
+                    }
+                ]
+            }
+        }
+    ]
+}

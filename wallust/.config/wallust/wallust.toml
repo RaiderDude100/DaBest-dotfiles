@@ -1,0 +1,10 @@
+backend = 'resized'
+threshold = 11
+palette = 'dark'
+
+[templates.kitty]
+template = 'kitty-colors.conf'
+target = '~/.config/kitty/colors-wallust.conf'
+[templates.zed]
+template = 'zed.json'
+target = '~/.config/zed/themes/wallust.json'

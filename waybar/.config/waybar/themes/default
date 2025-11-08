@@ -1,0 +1,67 @@
+{
+    "layer": "top", // Waybar at top layer
+    "spacing": 1, // Gaps between modules (4px)
+    "modules-left": ["group/menus","hyprland/workspaces","custom/updates"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["pulseaudio","battery","network","group/trays"],
+    "include": [
+    	"~/.config/waybar/modules.json"
+    ],
+    "hyprland/workspaces": {
+    	"persistent-workspaces": {
+		"*": 5
+    	},
+        "sort-by": "number",
+        "all-outputs": false
+    },
+    
+    "hyprland/window": {
+    	"format": "{title}",
+    	"icon": true,
+    	"icon-size": 13,
+    	"max-length": 32,
+    	"rewrite": {
+    		"(rofi - drun)": "",
+    	},
+    },
+    "tray": {
+        "spacing": 4
+    },
+    "clock": {
+        "interval": 60,
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%d/%m/%Y}",
+        "tooltip-format": "{calendar}"
+    },
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰈀 {essid}",
+        "tooltip-format": "{ifname}/{essid} via {gwaddr}",
+        "format-disconnected": "󰌙 Disconnected",
+        "max-length": 8,
+        "on-click": "kitty -e nmtui",
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "pulseaudio/slider": {
+    	"min": 0,
+    	"max": 100,
+    	"orientation": "horizontal"
+    },
+    "group/trays": {
+    	"orientation": "horizontal",
+    	"modules": ["clock","custom/gap","custom/notification","tray"],
+    },
+    "group/menus": {
+    	"orientation": "horizontal",
+    	"modules": ["custom/powermenu","custom/gap","custom/launcher"],
+    },
+}
+

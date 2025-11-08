@@ -1,0 +1,87 @@
+@import "colors.css";
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 14px;
+    border-radius: 0px;
+    margin: 0px;
+}
+
+tooltip {
+    background-color: black;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    border-width: 2px;
+    border-color: white;
+}
+
+window#waybar {
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    font-weight: bold;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+#workspaces button {
+    padding: 0 5px;
+}
+
+#workspaces button:hover {
+    background-color: gray;
+    color: black;
+}
+
+#workspaces button.active {
+    background-color: white;
+    padding: 0px 5px;
+    color: black;
+}
+
+#workspaces button.urgent {
+    background-color: transparent;
+    color: red;
+}
+#window {
+    background-color: transparent;
+}
+
+#battery {
+    background-color: transparent;
+}
+
+#workspaces {
+    background-color: transparent;
+}
+
+#clock {
+    background-color: transparent;
+
+}
+
+#network {
+    background-color: transparent;
+
+}
+
+#pulseaudio {
+    background-color: transparent;
+}
+
+#pulseaudio.muted {
+    background-color: transparent;
+    color: red;
+}
+
+#tray {
+    background-color: transparent;
+}
+
+#battery {
+    background-color: transparent;
+}
+
+

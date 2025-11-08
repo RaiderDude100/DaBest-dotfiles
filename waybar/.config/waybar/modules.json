@@ -1,0 +1,81 @@
+{
+ "custom/notification": {
+    "tooltip-format": "Left: Notifications\nRight: Do not disturb",
+    "format": "{} {icon}",
+    "format-icons": {
+      "notification":
+        "<span>󰂚</span>",
+      "none": "󰂚",
+      "dnd-notification":
+        "<span></span>",
+      "dnd-none": "󰂛",
+      "inhibited-notification":
+        "<span></span>",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification":
+        "<span></span>",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-time": "{H}:{m}",
+    "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"]
+  },
+  
+  "custom/launcher": {
+  	"format": "{icon}",
+  	"interval": 0,
+  	"tooltip-format": "Left-Click: App Launcher\nRight-Click: See all keybinds",
+  	"on-click": "rofi -show drun -show-icons",
+  	"on-click-right": "~/.config/hypr/scripts/keybind.sh",
+  	"format-icons": ["󰣇"],
+  },
+  
+  "custom/powermenu": {
+  	"format": "{icon}",
+  	"interval": 0,
+  	"tooltip-format": "Left-Click: Power Menu\nRight-Click: System Configuration",
+  	"on-click": "~/.config/hypr/scripts/powermenu.sh",
+  	"on-click-right": "~/.config/hypr/scripts/configuration.sh",
+  	"format-icons": ["󰐥"],
+  },
+  "custom/updates": {
+    "format": "{} {icon}",
+    "return-type": "json",
+    "format-icons": {
+        "has-updates": "󰅢",
+        "updated": "󰅠"
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300",
+    "on-click": "kitty -e ~/.config/hypr/scripts/updates.sh",
+    "on-click-right": "kitty -e pacseek",
+ },
+ "custom/sep": {
+    "format": "|",
+    "interval": 0,
+    "tooltip": false
+ },
+  "custom/gap": {
+    "format": " ",
+    "interval": 0,
+    "tooltip": false
+ },
+ "cpu": {
+    "format": "CPU: {usage}%"
+ },
+ "memory": {
+    "format": "Mem: {percentage}%"
+ },
+}
