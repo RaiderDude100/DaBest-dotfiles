@@ -4,7 +4,11 @@ set -e
 
 cd "$(dirname "$0")"
 
-cd Install
+cd Theme
+chmod +x theme.sh
+./theme.sh
+
+cd ../Install
 chmod +x install-yay.sh install-chaotic-aur.sh install-themeing.sh install-utilities.sh
 ./install-yay.sh
 ./install-chaotic-aur.sh
@@ -17,10 +21,6 @@ stow --override btop fastfetch gamemode gtk-2 gtk-3 gtk-4 hypr kitty matugen nwg
 cd Scripts/Install
 chmod +x install-programs.sh
 ./install-programs.sh
-
-cd ../Theme
-chmod +x theme.sh
-./theme.sh
 
 cd ../Post
 chmod +x post.sh
