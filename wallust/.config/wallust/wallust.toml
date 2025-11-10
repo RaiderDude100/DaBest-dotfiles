@@ -1,4 +1,4 @@
-backend = 'resized'
+backend = 'fastresize'
 threshold = 11
 palette = 'dark'
 
