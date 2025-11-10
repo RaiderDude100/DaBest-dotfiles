@@ -11,8 +11,9 @@ set tabstop=4
 set expandtab
 set smartindent
 set cursorline
-highlight CursorLine ctermbg=black ctermfg=white cterm=bold
+highlight CursorLine ctermbg=black ctermfg=none cterm=bold cterm=italic
+highlight CursorLineNR cterm=bold ctermfg=white
 let mapleader = " "
 nmap <leader>cd :Ex<cr>
-nmap <leader>s :w!<cr>
+nmap <leader>s :w<cr>
 nmap <leader>q :q!<cr>
