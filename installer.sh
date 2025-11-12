@@ -14,3 +14,4 @@ cd "$FOLDER_PATH/Scripts"
 ./install.sh
 
 echo "Please restart for effects to take place"
+exit 0

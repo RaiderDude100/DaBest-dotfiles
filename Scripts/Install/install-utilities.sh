@@ -4,4 +4,4 @@ yay -S polkit polkit-gnome polkit-qt6 7zip android-file-transfer android-udev aq
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo "Installed utilities"
-exit
+exit 0 

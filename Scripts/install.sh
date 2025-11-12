@@ -11,7 +11,7 @@ chmod +x theme.sh
 cd ../Install
 chmod +x install-yay.sh install-chaotic-aur.sh install-themeing.sh install-utilities.sh install-flatpaks.sh
 ./install-yay.sh
-./install-chaotic-aur.sh
+sudo ./install-chaotic-aur.sh
 ./install-themeing.sh
 ./install-utilities.sh
 ./install-flatpaks.sh
@@ -28,3 +28,4 @@ chmod +x post.sh
 ./post.sh
 
 echo "Done"
+exit 0
