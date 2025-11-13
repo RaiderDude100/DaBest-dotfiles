@@ -14,7 +14,5 @@ fi
 mv kora "$ICON_DIR/"
 mv Bibata-Modern-Ice "$ICON_DIR/"
 
-mv wallpaper "$HOME/"
-
 echo "Theme files copied"
 exit 0
