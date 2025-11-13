@@ -70,7 +70,40 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting fast-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions)
+
+# Ensure Oh My Zsh is installed
+if [ -z "$ZSH" ]; then
+  export ZSH="$HOME/.oh-my-zsh"
+fi
+
+# Default custom plugin directory
+ZSH_CUSTOM=${ZSH_CUSTOM:-$ZSH/custom}
+
+# Define plugins and their sources in parallel arrays
+plugin_names=(
+  zsh-syntax-highlighting
+  fast-syntax-highlighting
+  zsh-autosuggestions
+)
+
+plugin_repos=(
+  https://github.com/zsh-users/zsh-syntax-highlighting.git
+  https://github.com/zdharma-continuum/fast-syntax-highlighting.git
+  https://github.com/zsh-users/zsh-autosuggestions.git
+)
+
+# Auto-install missing plugins
+for i in {1..${#plugin_names[@]}}; do
+  plugin="${plugin_names[i]}"
+  repo="${plugin_repos[i]}"
+  plugin_dir="$ZSH_CUSTOM/plugins/$plugin"
+
+  if [ ! -d "$plugin_dir" ]; then
+    echo "Installing $plugin..."
+    git clone --depth=1 "$repo" "$plugin_dir"
+  fi
+done
 
 source $ZSH/oh-my-zsh.sh
 

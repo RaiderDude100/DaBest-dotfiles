@@ -1,115 +1,50 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
 
-# Colors
-Green='\033[0;32m'
-NC='\033[0m'
+set -euo pipefail
 
-# Functions
-chaotic_aur_mirrorlist_setup() {
-    echo ""
-    wget -q -O chaotic-mirrorlist "https://raw.githubusercontent.com/chaotic-aur/pkgbuild-chaotic-mirrorlist/main/mirrorlist"
-    sudo mv chaotic-mirrorlist /etc/pacman.d/chaotic-mirrorlist
-}
+# Colors for output
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 
-system_update() {
-    sudo pacman -Syu chaotic-keyring
-}
+echo -e "${GREEN}Setting up Chaotic AUR...${NC}"
 
-check_mirror_exists() {
-    if [[ -f "/etc/pacman.d/chaotic-mirrorlist" ]]; then
-        echo -e "\n${Green}Chaotic AUR is successfully installed.${NC}"
-        echo -e "${Green}Checking for system update with keyring...${NC}\n"
-        system_update
-    else
-        echo -e "\n${Green}Mirrorlist is not installed.${NC}"
-        echo -e "${Green}Attempting manual installation...${NC}\n"
-        chaotic_aur_mirrorlist_setup || { echo "Failed to set up mirrorlist"; exit 1; }
-        check_mirror_exists
-    fi
-}
+# Ensure running as root
+if [[ $EUID -ne 0 ]]; then
+  echo -e "${RED}This script must be run as root.${NC}" >&2
+  exit 1
+fi
 
-config_file_append() {
-    echo -e "#Chaotic-AUR\n\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf > /dev/null
-    check_mirror_exists
-}
+# Step 1: Import Chaotic AUR key
+echo -e "${GREEN}Importing Chaotic AUR key...${NC}"
+pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+pacman-key --lsign-key 3056513887B78AEB
 
-make_sure_system_is_updated() {
-    echo -e "${Green}Updating system to avoid unknown errors...${NC}"
-    sudo pacman -Syu
-}
+# Step 2: Add Chaotic AUR mirrorlist
+echo -e "${GREEN}Adding Chaotic AUR mirrorlist...${NC}"
+cat <<EOF > /etc/pacman.d/chaotic-mirrorlist
+Server=https://cdn-mirror.chaotic.cx/chaotic-aur/\$arch
+EOF
 
-install_chaotic_aur() {
-    echo -e "${Green}This process requires superuser permission. Please review the script before proceeding.${NC}"
-    make_sure_system_is_updated
-
-    sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com || { echo "Key import failed"; exit 1; }
-    sudo pacman-key --lsign-key 3056513887B78AEB
-    sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-
-    echo -e "\n${Green}If you encountered any error, please stop and refer to the official guide:${NC}"
-    echo "https://aur.chaotic.cx/"
-    echo ""
-
-    while true; do
-        read -rp "Do you want to continue? (yes or no): " yn
-        case $yn in
-            [Yy]* ) echo -e "\n${Green}Proceeding...${NC}\n"; sleep 2; break;;
-            [Nn]* ) echo -e "\n${Green}Exiting...${NC}"; exit;;
-            * ) echo -e "${Green}Please answer yes or no. Press y for yes or n for no.${NC}";;
-        esac
-    done
-
-    config_file_append
-}
-
-pacman_conf_chaotic_commented_not() {
-    if grep -q '#
+# Step 3: Add Chaotic AUR repository to pacman.conf
+echo -e "${GREEN}Configuring pacman to use Chaotic AUR...${NC}"
+if ! grep -q "
 
 \[chaotic-aur\]
 
-' /etc/pacman.conf || grep -q '#Include = /etc/pacman.d/chaotic-mirrorlist' /etc/pacman.conf; then
-        echo -e "${Green}Chaotic AUR is installed but disabled.${NC}"
-        echo -e "${Green}Enabling it...${NC}"
+" /etc/pacman.conf; then
+  cat <<EOF >> /etc/pacman.conf
 
-        echo -e "${Green}This process requires superuser permission. Please review the script before proceeding.${NC}"
+[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist
+EOF
+else
+  echo -e "${RED}Chaotic AUR already configured in pacman.conf.${NC}"
+fi
 
-        sudo sed -i 's/#
+# Step 4: Update package database
+echo -e "${GREEN}Updating package database...${NC}"
+yay -Syu
 
-\[chaotic-aur\]
-
-/
-
-\[chaotic-aur\]
-
-/' /etc/pacman.conf
-        sudo sed -i 's/#Include = \/etc\/pacman.d\/chaotic-mirrorlist/Include = \/etc\/pacman.d\/chaotic-mirrorlist/' /etc/pacman.conf
-
-        check_mirror_exists
-    else
-        echo -e "${Green}Chaotic AUR is not installed.${NC}"
-        echo -e "${Green}Installing now...${NC}"
-        install_chaotic_aur
-    fi
-}
-
-pacman_conf_chaotic_check() {
-    if grep -q '^
-
-\[chaotic-aur\]
-
-' /etc/pacman.conf && grep -q '^Include = /etc/pacman.d/chaotic-mirrorlist' /etc/pacman.conf; then
-        echo -e "${Green}Chaotic AUR is already installed and enabled.${NC}"
-    else
-        pacman_conf_chaotic_commented_not
-    fi
-}
-
-# Main Execution
-tmpdir=$(mktemp -d)
-cd "$tmpdir"
-pacman_conf_chaotic_check
-cd -
-rm -rf "$tmpdir"
-exit
-
+echo -e "${GREEN}Chaotic AUR setup complete! You can now install packages from it.${NC}"
+exit 0
