@@ -22,9 +22,8 @@ pacman-key --lsign-key 3056513887B78AEB
 
 # Step 2: Add Chaotic AUR mirrorlist
 echo -e "${GREEN}Adding Chaotic AUR mirrorlist...${NC}"
-cat <<EOF > /etc/pacman.d/chaotic-mirrorlist
-Server=https://cdn-mirror.chaotic.cx/chaotic-aur/\$arch
-EOF
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
 # Step 3: Add Chaotic AUR repository to pacman.conf
 echo -e "${GREEN}Configuring pacman to use Chaotic AUR...${NC}"
@@ -44,7 +43,7 @@ fi
 
 # Step 4: Update package database
 echo -e "${GREEN}Updating package database...${NC}"
-yay -Syu
+pacman -Syu
 
 echo -e "${GREEN}Chaotic AUR setup complete! You can now install packages from it.${NC}"
 exit 0
