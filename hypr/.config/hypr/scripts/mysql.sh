@@ -1,16 +1,13 @@
 #!/bin/bash
 
-# Get MySQL status line
-systemctl status mysqld.service | grep "Status:" > ~/.config/hypr/scripts/status.conf
-
 # Read the status content
-status="$(cat ~/.config/hypr/scripts/status.conf)"
+status="$(systemctl status mariadb.service | grep "running")"
 
 # Compare status and act accordingly
-if [[ "$status" == '     Status: "Server is operational"' ]]; then
-    mysql -p
+if [[ "$status" == '' ]]; then
+    systemctl start mariadb.service
+    mariadb --password=matrix
 else
-    systemctl start mysqld.service
-    mysql -p
+    mariadb --password=matrix
 fi
 

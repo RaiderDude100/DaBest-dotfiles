@@ -70,7 +70,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting fast-syntax-highlighting)
 
 # Ensure Oh My Zsh is installed
 if [ -z "$ZSH" ]; then
@@ -84,13 +84,11 @@ ZSH_CUSTOM=${ZSH_CUSTOM:-$ZSH/custom}
 plugin_names=(
   zsh-syntax-highlighting
   fast-syntax-highlighting
-  zsh-autosuggestions
 )
 
 plugin_repos=(
   https://github.com/zsh-users/zsh-syntax-highlighting.git
   https://github.com/zdharma-continuum/fast-syntax-highlighting.git
-  https://github.com/zsh-users/zsh-autosuggestions.git
 )
 
 # Auto-install missing plugins
