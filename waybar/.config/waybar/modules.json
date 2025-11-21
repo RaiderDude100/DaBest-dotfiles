@@ -51,14 +51,9 @@
   	"format-icons": ["󰐥"]
   },
   "custom/updates": {
-    "format": "{} {icon}",
-    "return-type": "json",
-    "format-icons": {
-        "has-updates": "󰅢",
-        "updated": "󰅠"
-    },
-    "exec-if": "which waybar-module-pacman-updates",
-    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300",
+    "exec": "~/.config/hypr/scripts/update-checker.sh",
+    "interval": 1800,
+    "tooltip-format": "Left-Click: Update System\nRight-Click: Pacseek",
     "on-click": "kitty -e ~/.config/hypr/scripts/updates.sh",
     "on-click-right": "kitty -e pacseek"
  },
