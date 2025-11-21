@@ -7,5 +7,5 @@ echo " _   _ ____  ____    _  _____ _____ ____
  \___/|_|   |____/_/   \_\_| |_____|____/ 
  "
 
-yay -Syu
-flatpak update
+yay -Syu --noconfirm
+flatpak update -y
