@@ -138,4 +138,5 @@ alias mysql="~/.config/hypr/scripts/mysql.sh"
 alias cp="rsync -a --info=progress2"
 eval "$(zoxide init zsh --cmd cd)"
 export PATH="$HOME/.cargo/bin:$PATH"
+export EDITOR="vim"
 fastfetch
